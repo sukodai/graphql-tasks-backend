@@ -2,7 +2,7 @@
  * DTO（Data Transfer Object）は、プロセス間でデータを送受信するオブジェクトを作る
  */
 
-import { Field, InputType } from '@nestjs/graphql';
+import { Field, InputType, Int } from '@nestjs/graphql';
 import { IsDateString, IsNotEmpty } from 'class-validator';
 
 @InputType()
@@ -17,4 +17,7 @@ export class CreateTaskInput {
 
   @Field({ nullable: true })
   description?: string;
+
+  @Field(() => Int)
+  userId: number;
 }
